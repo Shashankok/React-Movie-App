@@ -7,22 +7,18 @@ import Search from "./Search";
 const Home = () => {
     const [data, setData] = useState([]);
     const fetchApi = async (InputData) => {
-        const url = `https://moviesdatabase.p.rapidapi.com/titles/search/title/${InputData}?exact=false&titleType=movie`;
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '1eac9d21e0mshe3ad9e998479329p121858jsnb97af688a1a6',
-                'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
-            }
-        };
+        const url = `http://www.omdbapi.com/?apikey=233f54be&s=${InputData}`;
+
         try {
-            const response = await fetch(url, options);
+            const response = await fetch(url);
             const result = await response.json();
             console.log(result);
-            
-            const {results} = result;
-            setData(results);
-            console.log(data);
+            const {Search} = result;
+            const {Response} = result;
+            if(Response)
+                setData(Search);
+                
+
         } catch (error) {
             console.error(error);
         }
@@ -30,7 +26,7 @@ const Home = () => {
     return(
     <>
     <Search fetchApi={fetchApi}/>
-    <div className="container">
+    <div className="my-container">
         < Movie data={data} />
     </div>
     </>

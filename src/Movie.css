@@ -9,14 +9,14 @@ body{
     background-color: rgb(28, 28, 28);
 }
 
-.container{
+.my-container{
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: center;
     row-gap: 30px;
 }
 
-.card{
+.my-card{
     background-color: white;
     width: 250px;
     height: auto;
@@ -27,43 +27,43 @@ body{
     margin-right: 30px;
 }
 
-.card:hover{
+.my-card:hover{
     box-shadow: 5px 5px 10px rgba(254, 190, 190, 0.5);
 }
 
-.big-img{
+.my-big-img{
     width: 100%;
     height: 250px;
     border-radius: 20px;
 }
 
-.img-text-container{
+.my-img-text-container{
     display: flex;
     gap: 10px;
     margin-left: 20px;
 }
-.small-img{
+.my-small-img{
     width: 70px;
     height: 90px;
     border-radius: 5px;
     margin-top: -40px;
 }
-.heading-rating{
+.my-heading-rating{
     display: flex;
     flex-direction: column;
 }
-.heading{
+.my-heading{
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
 }
 
-.rating{
+.my-rating{
     font-size: 14px;
     text-align: start;
     margin-top: 5px;
 }
-.card-content{
+.my-card-content{
     display: grid;
     grid-template-columns: auto auto auto;
     margin: 20px 10px 0px 10px;
@@ -72,7 +72,7 @@ body{
     font-size: 14px;
 }
 
-.card-values{
+.my-card-values{
     color: black;
     margin-top: 5px;
 }
