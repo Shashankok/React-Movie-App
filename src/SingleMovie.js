@@ -1,14 +1,15 @@
 import "./SingleMovie.css";
 import { useEffect, useState } from "react";
-import Movie from "./Movie";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 
 const SingleMovie = () => {
     let { id } = useParams();
-    const [imdbData, setimdbData] = useState([]);
+    const [imdbData, setimdbData] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+
     const showFullDetails = async () =>{
-        const imdbIdUrl = `https://omdbapi.com/?i=${id}&apikey=233f54be`;
+        const imdbIdUrl = `https://omdbapi.com/?i=${id}&apikey=${process.env.REACT_APP_API_KEY}`;
         try {
             const response = await fetch(imdbIdUrl);
             const result = await response.json();
@@ -16,12 +17,14 @@ const SingleMovie = () => {
         } catch (error) {
             console.error(error);
         }
+        setIsLoading(false);
     }
     useEffect(()=>{
         showFullDetails()
     },[]);
 
-        return ( 
+    if(!isLoading)
+        return (
         <div className="single-container">
             <div className="single-card">
                 <div className="single-content">
@@ -38,7 +41,10 @@ const SingleMovie = () => {
                     <div className="single-lower">
                         <p className="single-summary">{imdbData.Plot}</p>
                     </div>
-                    <a href={`https://www.imdb.com/title/${imdbData.imdbID}`}><i className="fa-brands fa-imdb single-backBtn" /></a>
+                    <NavLink to="/" className="back-btn">
+                        <i class="fa-solid fa-circle-arrow-left single-backBtn"></i>
+                    </NavLink>
+                    <a target="_blank" href={`https://www.imdb.com/title/${imdbData.imdbID}`}><i className="fa-brands fa-imdb single-imdbBtn" /></a>
                 </div>
                 <div className="single-img">
                     <img className="big-img" src={imdbData.Poster} alt="" />
@@ -46,6 +52,15 @@ const SingleMovie = () => {
             </div>
         </div>
     );
+    else{
+        return (
+            <div className="loader-container">
+                <i className="fa-solid fa-spinner fa-spin"></i>
+            </div>
+        );
+    }
+        
+        
 }
  
 export default SingleMovie;

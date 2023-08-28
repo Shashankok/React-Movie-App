@@ -6,7 +6,7 @@ const Search = ({fetchApi}) => {
         <div className="search-container">
             <div className="search-box">
                 <button className="btn-search" onClick={() => fetchApi(InputData)}><i className="fas fa-search"></i></button>
-                <input type="text" className="input-search" 
+                <i className="fa-solid fa-video" style = {{color:"#fff"}}></i><input type="text" className="input-search" 
                     placeholder="Search Movie..." onChange={(event) => setInputData(event.target.value)}></input>
             </div>
         </div>

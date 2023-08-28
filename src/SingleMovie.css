@@ -8,7 +8,7 @@
 .single-card{
     display: flex;
     width: 700px;
-    height: 300px;
+    height: 350px;
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
     color: aliceblue;
@@ -59,6 +59,7 @@
     border: 1px solid aliceblue;
     border-radius: 5px;
     padding: 1px;
+    width: fit-content;
 }
 
 .single-lower{
@@ -67,7 +68,7 @@
 
 .single-summary{
     overflow:auto;
-    max-height: 110px;
+    max-height: 80px;
 }
 
 /* for Scroll bar stylling */
@@ -90,6 +91,26 @@
   }
 /* Scrollbar styling ends */
 
+.single-icons{
+    display: flex;
+    column-gap: 10px;
+}
+
+.single-imdbBtn{
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+    font-size: 30px;
+    color: white;
+}
+
+.single-imdbBtn:hover{
+    color: rgb(0, 0, 0);
+    background-color: #F5C518;
+    border-radius: 2px;
+    padding: 0px 2px;
+}
+
 .single-backBtn{
     position: absolute;
     bottom: 10px;
@@ -97,12 +118,10 @@
     font-size: 30px;
     color: white;
 }
-
 .single-backBtn:hover{
     color: rgb(0, 0, 0);
     background-color: #F5C518;
     border-radius: 2px;
-    padding: 0px 2px;
 }
 
 .single-img{
@@ -114,4 +133,25 @@
     height: 100%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.loader-container{
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 30px;
+}
+
+.noMovieFound{
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.noMovieFound img{
+    width: 200px;
+    height: 200px;
 }
