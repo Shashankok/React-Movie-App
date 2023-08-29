@@ -128,6 +128,22 @@
     width: 50%;
 }
 
+@media (max-width: 420px) {
+    .single-img{
+        display: none;    
+    }
+    .single-content{
+        width: 100%;
+    }
+    .small-img{
+        width: 110px;
+        height: 130px;
+    }
+    .single-summary{
+        max-height: 100px;
+    }
+}
+
 .big-img{
     width: 100%;   
     height: 100%;
